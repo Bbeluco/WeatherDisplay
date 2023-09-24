@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const mockReturn = [
     {
         "timelines": {
@@ -18422,12 +18424,19 @@ const mockReturn = [
 ]
 
 function getStateCurrentWeatherInfo() {
-    // try{
-    //     const response = await axios.get(`${url}${endpoint}${city_name}&apikey=`)
-    //     console.log(response)
-    // } catch(error) {
-    //     console.log(error)
-    // }
+    axios({
+            method: 'GET',
+            url: 'https://api.tomorrow.io/v4/weather/forecast',
+            params: {
+                location: 'sao paulo',
+                apikey: 'XXXXXXXXXXXXXXXXXXXXX'
+            }
+        })
+        .then(res => {
+            console.log(res)
+        }).catch(error => {
+            console.log(error)
+        })
     return mockReturn
 }
 
