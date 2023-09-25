@@ -18429,7 +18429,6 @@ const capitals: string[] = ['sao paulo', 'rio de janeiro', 'belo horizonte']
 function useGetCapitalsCurrentWeatherInfo() {
   const [resultWeatherCapital, setResultWeatherCapital] = React.useState<string[]>([])
   let aux: string[] = []
-  console.log(process.env.REACT_APP_API_KEY_WEATHER_FORECAST)
 
   React.useEffect(() => {
     capitals.map((capital) => {
