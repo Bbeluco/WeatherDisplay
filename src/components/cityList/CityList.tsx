@@ -1,13 +1,13 @@
 import React from "react";
 import CSS from 'csstype';
-import getStateCurrentWeatherInfo from "../../requests/axiosRequests";
+import useGetCapitalsCurrentWeatherInfo from "../../requests/axiosRequests";
 
 function CityList(): React.JSX.Element {
     return (
         <>
             <h2 style={style}>Sou a lista de cidades</h2>
             {
-                getStateCurrentWeatherInfo().map((element, index) => {
+                useGetCapitalsCurrentWeatherInfo().map((element: any, index: number) => {
                     return(
                         <div style={styleColumn}>
                             <label>{Math.round(element['timelines']['daily'][0]['values']['temperatureMax'])} </label>

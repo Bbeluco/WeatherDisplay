@@ -1,4 +1,5 @@
 import axios from 'axios'
+import React from 'react'
 
 const mockReturn = [
     {
@@ -18423,21 +18424,31 @@ const mockReturn = [
     }
 ]
 
-function getStateCurrentWeatherInfo() {
-    axios({
-            method: 'GET',
-            url: 'https://api.tomorrow.io/v4/weather/forecast',
-            params: {
-                location: 'sao paulo',
-                apikey: 'XXXXXXXXXXXXXXXXXXXXX'
-            }
-        })
-        .then(res => {
-            console.log(res)
-        }).catch(error => {
-            console.log(error)
-        })
-    return mockReturn
+const capitals: string[] = ['sao paulo', 'rio de janeiro', 'belo horizonte']
+
+function useGetCapitalsCurrentWeatherInfo() {
+  const [resultWeatherCapital, setResultWeatherCapital] = React.useState<string[]>([])
+  let aux: string[] = []
+
+  React.useEffect(() => {
+    capitals.map((capital) => {
+      axios({
+        method: 'GET',
+        url: 'https://api.tomorrow.io/v4/weather/forecast',
+        params: {
+          location: capital,
+          apikey: 'XXXXXXXXXXXXXXXXXXXXXXXX'
+        }
+      }).then((response) => {
+        aux.push(response.data)
+        setResultWeatherCapital(aux)
+      }).catch((error) => {
+        console.log(error)
+      })
+    })
+  }, [])
+  return resultWeatherCapital
+  // return mockReturn
 }
 
-export default getStateCurrentWeatherInfo;
+export default useGetCapitalsCurrentWeatherInfo;
