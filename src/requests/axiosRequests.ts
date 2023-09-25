@@ -18429,6 +18429,7 @@ const capitals: string[] = ['sao paulo', 'rio de janeiro', 'belo horizonte']
 function useGetCapitalsCurrentWeatherInfo() {
   const [resultWeatherCapital, setResultWeatherCapital] = React.useState<string[]>([])
   let aux: string[] = []
+  console.log(process.env.REACT_APP_API_KEY_WEATHER_FORECAST)
 
   React.useEffect(() => {
     capitals.map((capital) => {
@@ -18437,7 +18438,7 @@ function useGetCapitalsCurrentWeatherInfo() {
         url: 'https://api.tomorrow.io/v4/weather/forecast',
         params: {
           location: capital,
-          apikey: 'XXXXXXXXXXXXXXXXXXXXXXXX'
+          apikey: process.env.REACT_APP_API_KEY_WEATHER_FORECAST
         }
       }).then((response) => {
         aux.push(response.data)
