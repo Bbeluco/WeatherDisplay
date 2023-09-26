@@ -1,27 +1,32 @@
 import React from "react";
 import CSS from 'csstype';
-import useGetCapitalsCurrentWeatherInfo from "../../requests/axiosRequests";
+import useAxiosRequests from "../../requests/axiosRequests";
+
 
 function CityList(): React.JSX.Element {
+    const { city, useGetCityWeather } = useAxiosRequests()
+
+    useGetCityWeather('Diadema')
+
     return (
         <>
             <h2 style={style}>Sou a lista de cidades</h2>
             {
-                useGetCapitalsCurrentWeatherInfo().map((element: any, index: number) => {
-                    return(
-                        <div style={styleColumn}>
-                            <label>{Math.round(element['timelines']['daily'][0]['values']['temperatureMax'])} </label>
-                            <label>{Math.round(element['timelines']['daily'][0]['values']['temperatureMin'])}</label>
-                            <ul style={styleListCapitals}>
-                                <li key={index}>{element['location']['name']}</li>
-                            </ul>
-                        </div>
-                    )
+                city.map((element: any, index: number) => {
+                    console.log(element['forecast']['forecastday'])
+                    // return(
+                    //     <div style={styleColumn}>
+                    //         <label>{element['forecast']['forecastday'][0]['day']['mintemp_c']}</label>
+                    //         <label>{element['forecast']['forecastday'][0]['day']['maxtemp_c']}</label>
+                    //         <label>{element['location']['name']}</label>
+                    //     </div>
+                    // )
                 })
             }
         </>
     )
 }
+
 
 
 const style: CSS.Properties = {
