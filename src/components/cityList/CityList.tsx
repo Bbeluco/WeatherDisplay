@@ -13,14 +13,13 @@ function CityList(): React.JSX.Element {
             <h2 style={style}>Sou a lista de cidades</h2>
             {
                 city.map((element: any, index: number) => {
-                    console.log(element['forecast']['forecastday'])
-                    // return(
-                    //     <div style={styleColumn}>
-                    //         <label>{element['forecast']['forecastday'][0]['day']['mintemp_c']}</label>
-                    //         <label>{element['forecast']['forecastday'][0]['day']['maxtemp_c']}</label>
-                    //         <label>{element['location']['name']}</label>
-                    //     </div>
-                    // )
+                    return(
+                        <div style={styleColumn}>
+                            <label>{element['forecast']['forecastday'][0]['day']['mintemp_c']} </label>
+                            <label>{element['forecast']['forecastday'][0]['day']['maxtemp_c']} </label>
+                            <label>{element['location']['name']}</label>
+                        </div>
+                    )
                 })
             }
         </>

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 function useAxiosRequests() {
-  const [city, setCity] = useState<string[]>([''])
+  const [city, setCity] = useState<string[]>([])
   let aux: string[] = []
   
   function useGetCityWeather(cidade: string){
