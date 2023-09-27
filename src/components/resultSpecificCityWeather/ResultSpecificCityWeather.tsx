@@ -1,13 +1,20 @@
 import React from "react";
 
 type Props = {
-    city: string
+    cityInformation: any
 }
 
-function ResultSpecificCityWeather({ city }: Props): React.JSX.Element {
+function ResultSpecificCityWeather({ cityInformation }: Props): React.JSX.Element {
+
+    if(!cityInformation) {
+        return (<>
+            <label></label>
+        </>)
+    }
+
     return (
         <>
-            <label>{city}</label>
+            <label>{cityInformation['location']['name']}</label>
         </>
     )
 }

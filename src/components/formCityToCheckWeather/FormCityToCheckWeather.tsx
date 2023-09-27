@@ -2,10 +2,10 @@ import React from "react";
 
 type Props = {
     onChangeInputField: (event: any) => void,
-    changeIsSearchable: () => void
+    loadInformationAboutCity: () => void
 }
 
-function FormCityToCheckWeather({ onChangeInputField, changeIsSearchable}: Props) {
+function FormCityToCheckWeather({ onChangeInputField, loadInformationAboutCity }: Props) {
     return (
         <>
             <input 
@@ -14,7 +14,7 @@ function FormCityToCheckWeather({ onChangeInputField, changeIsSearchable}: Props
                 placeholder='Insira aqui o nome da cidade'
                 onChange={onChangeInputField}
             />
-            <button onClick={changeIsSearchable}>pesquisar</button>
+            <button onClick={loadInformationAboutCity}>pesquisar</button>
         </>
     )
 }

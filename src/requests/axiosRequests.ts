@@ -20,7 +20,8 @@ function useAxiosRequests() {
   }
 
   async function requestApiToCheckWeather(cityName: string): Promise<object> {
-    const response = await axios.get('http://api.weatherapi.com/v1/forecast.json', createRequestParamsBasedOnCityName(cityName))        
+    const response = await axios.get('http://api.weatherapi.com/v1/forecast.json', 
+      createRequestParamsBasedOnCityName(cityName))        
     return response.data
   }
 
@@ -30,7 +31,6 @@ function useAxiosRequests() {
       capitals.forEach(async capital => {
         aux.push(await requestApiToCheckWeather(capital))
         setCity(aux)
-        console.log(aux)
         if(aux.length === capitals.length){
           setIsLoading(false);
         }
@@ -39,7 +39,7 @@ function useAxiosRequests() {
   }
 
 
-  return { city, useGetCapitalsWeather, isLoading }
+  return { city, useGetCapitalsWeather, isLoading, requestApiToCheckWeather }
 }
 
 export default useAxiosRequests

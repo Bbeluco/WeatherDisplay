@@ -1,28 +1,31 @@
 import React, { useState } from "react";
 import FormCityToCheckWeather from "../formCityToCheckWeather/FormCityToCheckWeather";
 import ResultSpecificCityWeather from "../resultSpecificCityWeather/ResultSpecificCityWeather";
+import useAxiosRequests from "../../requests/axiosRequests";
 
 function SeachSpecificWeatherInCity(): React.JSX.Element {
     const [nameCity, setNameCity] = useState('')
-    const [isSearchable, setIsSearchable] = useState(false)
+    const { requestApiToCheckWeather } = useAxiosRequests()
+    const [cityInformation, setCityInformation] = useState<any>()
     
     
     function onChangeInputField(event: any) {
         setNameCity(event.target.value)
     }
 
-    function changeIsSearchable() {
-        setIsSearchable(true)
-        
+    async function loadInformationAboutCity() {
+        const respose = await requestApiToCheckWeather(nameCity)
+        setCityInformation(respose);
+        console.log(respose)
     }
 
     return (
         <>
-            {isSearchable && <ResultSpecificCityWeather city={nameCity} />}
+            {<ResultSpecificCityWeather cityInformation={cityInformation} /> }
             <br />
             <FormCityToCheckWeather 
                 onChangeInputField={onChangeInputField} 
-                changeIsSearchable={changeIsSearchable}
+                loadInformationAboutCity={loadInformationAboutCity}
             />
             
         </>
