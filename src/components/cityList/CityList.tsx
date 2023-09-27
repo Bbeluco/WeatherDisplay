@@ -16,12 +16,15 @@ function CityList(): React.JSX.Element {
         <>
             <h2 style={style}>Sou a lista de cidades</h2>
             {
-                city.map((element: any, index: number) => 
-                    <div style={styleColumn} key={(index + 1) * Math.random()}>
-                        <label key={(index + 1) * Math.random()}>{element['forecast']['forecastday'][0]['day']['mintemp_c']} </label>
-                        <label key={(index + 1) * Math.random()}>{element['forecast']['forecastday'][0]['day']['maxtemp_c']} </label>
-                        <label key={(index + 1) * Math.random()}>{element['location']['name']}</label>
-                    </div>
+                city.map((element: any, index: number) => {
+                        return (
+                            <div style={styleColumn} key={(index + 1) * Math.random()}>
+                                <label key={(index + 1) * Math.random()}>{element['forecast']['forecastday'][0]['day']['mintemp_c']} </label>
+                                <label key={(index + 1) * Math.random()}>{element['forecast']['forecastday'][0]['day']['maxtemp_c']} </label>
+                                <label key={(index + 1) * Math.random()}>{element['location']['name']}</label>
+                            </div>
+                        )
+                    }
                 )
             }
         </>

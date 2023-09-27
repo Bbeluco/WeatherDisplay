@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import capitals from '../constants/brazilCapitals'
 
+
 function useAxiosRequests() {
   const [city, setCity] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -9,19 +10,17 @@ function useAxiosRequests() {
   function useGetCityWeather(){
     
     useEffect(() => {
-      capitals.forEach(capital => {
-        axios.get(`http://api.weatherapi.com/v1/forecast.json?key=&q=${capital}&days=7&aqi=no&alerts=no`)
-          .then(response => {
-            aux.push(response.data)
-            setCity(aux)
-          }).catch(error => {
-            console.log(error)
-          })
+      capitals.forEach(async capital => {
+        const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=&q=${capital}&days=7&aqi=no&alerts=no`)        
+        aux.push(response.data)
+        setCity(aux)
+        if(aux.length === capitals.length){
+          setIsLoading(false);
+        }
       })
-      setIsLoading(false);
     }, [])
-
   }
+
 
   return { city, useGetCityWeather, isLoading }
 }
