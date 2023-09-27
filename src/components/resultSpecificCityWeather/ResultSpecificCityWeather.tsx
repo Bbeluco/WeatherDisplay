@@ -1,8 +1,14 @@
 import React from "react";
 
-function ResultSpecificCityWeather(): React.JSX.Element {
+type Props = {
+    city: string
+}
+
+function ResultSpecificCityWeather({ city }: Props): React.JSX.Element {
     return (
-        <label>RESULTADO ESPECIFICO DE UMA CIDADE</label>
+        <>
+            <label>{city}</label>
+        </>
     )
 }
 

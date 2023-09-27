@@ -2,15 +2,14 @@ import React from 'react';
 import CityList from './components/cityList/CityList';
 import Header from './components/header/Header';
 import ResultSpecificCityWeather from './components/resultSpecificCityWeather/ResultSpecificCityWeather'
-import InputSpecificCityToQuery from './components/inputSpecificCityToQuery/InputSpecificCityToQuery'
+import SeachSpecificWeatherInCity from './components/seachSpecificWeatherInCity/SeachSpecificWeatherInCity'
 
 function App() {
+
   return (
     <div className="App">
       <Header />
-      <ResultSpecificCityWeather />
-      <br />
-      <InputSpecificCityToQuery />
+      <SeachSpecificWeatherInCity />
       <hr />
       {/* <CityList /> */}
     </div>
