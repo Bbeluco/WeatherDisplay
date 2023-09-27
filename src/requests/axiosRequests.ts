@@ -11,7 +11,7 @@ function useAxiosRequests() {
     
     useEffect(() => {
       capitals.forEach(async capital => {
-        const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=&q=${capital}&days=7&aqi=no&alerts=no`)        
+        const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHERAPI_KEY}&q=${capital}&days=7&aqi=no&alerts=no`)        
         aux.push(response.data)
         setCity(aux)
         if(aux.length === capitals.length){
