@@ -4,23 +4,25 @@ import useAxiosRequests from "../../requests/axiosRequests";
 
 
 function CityList(): React.JSX.Element {
-    const { city, useGetCityWeather } = useAxiosRequests()
+    const { city, useGetCityWeather, isLoading } = useAxiosRequests()
 
-    useGetCityWeather('Diadema')
+    useGetCityWeather()
+
+    if(isLoading){
+        return <div>Carregando a lista de cidades...</div>;
+    }
 
     return (
         <>
             <h2 style={style}>Sou a lista de cidades</h2>
             {
-                city.map((element: any, index: number) => {
-                    return(
-                        <div style={styleColumn}>
-                            <label>{element['forecast']['forecastday'][0]['day']['mintemp_c']} </label>
-                            <label>{element['forecast']['forecastday'][0]['day']['maxtemp_c']} </label>
-                            <label>{element['location']['name']}</label>
-                        </div>
-                    )
-                })
+                city.map((element: any, index: number) => 
+                    <div style={styleColumn} key={(index + 1) * Math.random()}>
+                        <label key={(index + 1) * Math.random()}>{element['forecast']['forecastday'][0]['day']['mintemp_c']} </label>
+                        <label key={(index + 1) * Math.random()}>{element['forecast']['forecastday'][0]['day']['maxtemp_c']} </label>
+                        <label key={(index + 1) * Math.random()}>{element['location']['name']}</label>
+                    </div>
+                )
             }
         </>
     )
@@ -39,7 +41,4 @@ const styleColumn: CSS.Properties = {
     alignItems: 'center'
 }
 
-const styleListCapitals: CSS.Properties = {
-    listStyle: 'none'
-}
 export default CityList;
