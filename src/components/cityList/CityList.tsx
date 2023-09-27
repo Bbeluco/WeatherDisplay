@@ -4,9 +4,9 @@ import useAxiosRequests from "../../requests/axiosRequests";
 
 
 function CityList(): React.JSX.Element {
-    const { city, useGetCityWeather, isLoading } = useAxiosRequests()
+    const { city, useGetCapitalsWeather, isLoading } = useAxiosRequests()
 
-    useGetCityWeather()
+    useGetCapitalsWeather()
 
     if(isLoading){
         return <div>Carregando a lista de cidades...</div>;
