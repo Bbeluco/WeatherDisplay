@@ -5,16 +5,34 @@ type Props = {
 }
 
 function ResultSpecificCityWeather({ cityInformation }: Props): React.JSX.Element {
-
+    
     if(!cityInformation) {
         return (<>
             <label></label>
         </>)
     }
 
+    const futureDays = cityInformation['forecast']['forecastday'].splice(0)
+
     return (
         <>
-            <label>{cityInformation['location']['name']}</label>
+            <label>{cityInformation['current']['feelslike_c']} Sensacao termica </label><br />
+            <label>{cityInformation['current']['condition']['text']} Condicao climatica </label><br />
+            <label>{cityInformation['current']['wind_kph']} Vento em km/h</label><br />
+            <label>{cityInformation['current']['humidity']} Humidade</label><br />
+            <hr />
+                {futureDays.map((day: any, index: number) => {
+                    console.log(day)
+                    return (
+                        <div key={index}>
+                            <label>{day['date'].split('-').slice(1).reverse().join('/')}</label><br/>
+                            <label>{Math.round(day['day']['mintemp_c'])}° </label>
+                            <label>{Math.round(day['day']['maxtemp_c'])}°</label>
+                            <br />
+                            <br />
+                        </div>
+                    )
+                })}
         </>
     )
 }
