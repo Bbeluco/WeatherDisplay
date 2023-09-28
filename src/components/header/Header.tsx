@@ -1,16 +1,12 @@
 import React from "react";
-import CSS from 'csstype';
+import style from './Header.module.css'
 
 function Header(): React.JSX.Element {
     return (
         <>
-            <h1 style={style}>Previsao do tempo</h1>
+            <h1 className={style.headerTitle}>Previsao do tempo</h1>
         </>
     )
-}
-
-const style: CSS.Properties = {
-    textAlign: 'center'
 }
 
 export default Header;
