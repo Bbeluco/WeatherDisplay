@@ -12,7 +12,7 @@ function ResultSpecificCityWeather({ cityInformation }: Props): React.JSX.Elemen
         </>)
     }
 
-    const futureDays = cityInformation['forecast']['forecastday'].splice(0)
+    const futureDays = cityInformation['forecast']['forecastday'].slice(1)
 
     return (
         <>

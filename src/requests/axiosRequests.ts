@@ -12,7 +12,7 @@ function useAxiosRequests() {
       params: {
         key: process.env.REACT_APP_WEATHERAPI_KEY,
         q: cityName,
-        days: 6,
+        days: 5,
         aqi: 'no',
         alerts: 'no',
         lang: 'pt'
