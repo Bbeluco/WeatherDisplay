@@ -20,7 +20,6 @@ function ResultSpecificCityWeather({ cityInformation }: Props): React.JSX.Elemen
             <label>{cityInformation['current']['condition']['text']} Condicao climatica </label><br />
             <label>{cityInformation['current']['wind_kph']} Vento em km/h</label><br />
             <label>{cityInformation['current']['humidity']} Humidade</label><br />
-            <hr />
                 {futureDays.map((day: any, index: number) => {
                     console.log(day)
                     return (

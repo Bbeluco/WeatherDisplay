@@ -27,7 +27,6 @@ function SeachSpecificWeatherInCity(): React.JSX.Element {
                 onChangeInputField={onChangeInputField} 
                 loadInformationAboutCity={loadInformationAboutCity}
             />
-            
         </div>
     )
 }
