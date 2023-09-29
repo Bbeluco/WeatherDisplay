@@ -11,7 +11,7 @@ function App() {
       <Header />
       <SeachSpecificWeatherInCity />
       <hr />
-      {/* <CityList /> */}
+      <CityList />
     </div>
   );
 }
