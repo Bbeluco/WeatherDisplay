@@ -20,7 +20,7 @@ function SeachSpecificWeatherInCity(): React.JSX.Element {
     }
 
     return (
-        <>
+        <div>
             {<ResultSpecificCityWeather cityInformation={cityInformation} /> }
             <br />
             <FormCityToCheckWeather 
@@ -28,7 +28,7 @@ function SeachSpecificWeatherInCity(): React.JSX.Element {
                 loadInformationAboutCity={loadInformationAboutCity}
             />
             
-        </>
+        </div>
     )
 }
 

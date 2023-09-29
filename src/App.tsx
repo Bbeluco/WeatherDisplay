@@ -9,8 +9,8 @@ function App() {
   return (
     <div className={style.app}>
       <Header />
-      {/* <SeachSpecificWeatherInCity />
-      <hr />
+      <SeachSpecificWeatherInCity />
+      {/* <hr />
       <CityList /> */}
     </div>
   );

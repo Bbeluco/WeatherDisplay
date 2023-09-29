@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputField {
+    border: 1px solid grey;
+    border-right: 0px;
+    outline: none;
+    width: 40%;
+    height: 25px;
+    float: left;
+}
+
+.form, .button {
+    float: left;
+    border-left: none;
+    height: 25px;
+    cursor: pointer;
+}
+
+.button {
+    display: flex;
+    background: white;
+    border: 1px solid grey;
+    border-left: 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.inputField, .button {
+    padding: 15px
+}
