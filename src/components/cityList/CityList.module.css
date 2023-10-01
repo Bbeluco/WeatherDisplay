@@ -1,0 +1,18 @@
+.capitalsDiv {
+    width: 50%;
+    margin: auto;
+    text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+    .capitalsDiv {
+        width: 100%;
+        margin: auto;
+        text-align: left;
+    }
+}
+
+h2 {
+    color: white;
+    margin-bottom: 0px;
+}

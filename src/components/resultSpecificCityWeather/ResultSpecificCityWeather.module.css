@@ -1,0 +1,53 @@
+.divSpecificCityWeather {
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    text-align: left;
+    padding: 30px;
+}
+
+@media screen and (max-width: 600px) {
+    .divSpecificCityWeather {
+        background-color: white;
+        width: 100%;
+        margin: auto;
+        text-align: left;
+        padding: 30px;
+    }
+}
+
+.cityRegion {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.divGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.hrSpecificCity {
+    margin: 10px;
+    width: 95%;
+}
+
+.arrow {
+    color: orange;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.buttonCloseSpecificWeather {
+    background: white;
+    border: none;
+    font-weight: bold;
+    color: orange;
+    font-size: 20px;
+}
+
+.headerSpecificCityWeather {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}

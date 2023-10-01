@@ -2,17 +2,35 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import capitals from '../constants/brazilCapitals'
 
-
 function useAxiosRequests() {
-  const [city, setCity] = useState<string[]>([])
+  const [city, setCity] = useState<object[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  let aux: string[] = []
-  function useGetCityWeather(){
+  let aux: object[] = []
+
+  function createRequestParamsBasedOnCityName(cityName: string): object {
+    return {
+      params: {
+        key: process.env.REACT_APP_WEATHERAPI_KEY,
+        q: cityName,
+        days: 6,
+        aqi: 'no',
+        alerts: 'no',
+        lang: 'pt'
+      }
+    }
+  }
+
+  async function requestApiToCheckWeather(cityName: string): Promise<object> {
+    const response = await axios.get('http://api.weatherapi.com/v1/forecast.json', 
+      createRequestParamsBasedOnCityName(cityName))        
+    return response.data
+  }
+
+  function useGetCapitalsWeather(){
     
     useEffect(() => {
       capitals.forEach(async capital => {
-        const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHERAPI_KEY}&q=${capital}&days=7&aqi=no&alerts=no`)        
-        aux.push(response.data)
+        aux.push(await requestApiToCheckWeather(capital))
         setCity(aux)
         if(aux.length === capitals.length){
           setIsLoading(false);
@@ -22,7 +40,7 @@ function useAxiosRequests() {
   }
 
 
-  return { city, useGetCityWeather, isLoading }
+  return { city, useGetCapitalsWeather, isLoading, requestApiToCheckWeather }
 }
 
 export default useAxiosRequests
