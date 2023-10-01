@@ -16,7 +16,6 @@ function SeachSpecificWeatherInCity(): React.JSX.Element {
     async function loadInformationAboutCity() {
         const respose = await requestApiToCheckWeather(nameCity)
         setCityInformation(respose);
-        console.log(respose)
     }
 
     return (

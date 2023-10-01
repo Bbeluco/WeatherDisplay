@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import useAxiosRequests from "../../requests/axiosRequests";
 import style from './CityList.module.css'
 import MobileTableCapitalsWeather from "../mobileTableCapitalsWeather/MobileTableCapitalsWeather";
-
+import DesktopTableCapitalsWeather from "../desktopTableCapitalsWeather/DesktopTableCapitalsWeather"
 
 function CityList(): React.JSX.Element {
     const { city, useGetCapitalsWeather, isLoading } = useAxiosRequests()
@@ -29,11 +29,10 @@ function CityList(): React.JSX.Element {
         return <div>Carregando a lista de cidades...</div>;
     }
 
-    console.log(city)
     return (
         <div className={style.capitalsDiv}>
             <h2>Capitais</h2><br/>
-            { windowSize[0] <= 600 && MobileTableCapitalsWeather(city)}
+            { windowSize[0] <= 600 ? MobileTableCapitalsWeather(city) : DesktopTableCapitalsWeather(city)}
         </div>
     )
 }
