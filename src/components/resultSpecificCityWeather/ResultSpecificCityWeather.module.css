@@ -26,3 +26,18 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+.buttonCloseSpecificWeather {
+    background: white;
+    border: none;
+    font-weight: bold;
+    color: orange;
+    font-size: 20px;
+}
+
+.headerSpecificCityWeather {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}

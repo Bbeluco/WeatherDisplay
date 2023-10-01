@@ -8,7 +8,7 @@ function DesktopTableCapitalsWeather(city: any): React.JSX.Element {
     const tablesToConstruct = [first5, last5]
 
     return (
-        <>
+        <div className={style.listsCapitals}>
             {
                 tablesToConstruct.map(table => {
                     return (
@@ -40,7 +40,7 @@ function DesktopTableCapitalsWeather(city: any): React.JSX.Element {
                 })
             }
         
-        </>
+        </div>
     )
 
 

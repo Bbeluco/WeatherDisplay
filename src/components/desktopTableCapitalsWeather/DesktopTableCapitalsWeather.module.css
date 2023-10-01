@@ -2,3 +2,9 @@
     float: left;
     width: 50%;
 }
+
+.listsCapitals {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

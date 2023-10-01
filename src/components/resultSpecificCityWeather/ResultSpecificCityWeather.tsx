@@ -18,7 +18,10 @@ function ResultSpecificCityWeather({ cityInformation }: Props): React.JSX.Elemen
 
     return (
         <div className={style.divSpecificCityWeather}>
-            <label className={style.cityRegion}>{cityInformation['location']['name']},{cityInformation['location']['region']} - {cityInformation['location']['country']}</label>
+            <div className={style.headerSpecificCityWeather}>
+                <label className={style.cityRegion}>{cityInformation['location']['name']},{cityInformation['location']['region']} - {cityInformation['location']['country']}</label>
+                <button className={style.buttonCloseSpecificWeather}>X</button>
+            </div>
             <h1>{cityInformation['current']['temp_c']}°C {cityInformation['current']['condition']['text']}</h1>
             <div className={style.divGrid}>
                 <div>
