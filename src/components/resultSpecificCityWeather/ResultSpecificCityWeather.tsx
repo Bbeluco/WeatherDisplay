@@ -21,7 +21,10 @@ function ResultSpecificCityWeather({ cityInformation }: Props): React.JSX.Elemen
             <label className={style.cityRegion}>{cityInformation['location']['name']},{cityInformation['location']['region']} - {cityInformation['location']['country']}</label>
             <h1>{cityInformation['current']['temp_c']}°C {cityInformation['current']['condition']['text']}</h1>
             <div className={style.divGrid}>
-                <label>tapa buraco</label>
+                <div>
+                    <label><label className={style.arrow}>&#8595;</label>{cityInformation['forecast']['forecastday'][0]['day']['mintemp_c']}° </label>
+                    <label><label className={style.arrow}>&#8593;</label>{cityInformation['forecast']['forecastday'][0]['day']['maxtemp_c']}°</label>
+                </div>
                 <label>Sensacao <b>{cityInformation['current']['feelslike_c']}°C</b></label><br/>
                 <label>Vento <b>{cityInformation['current']['wind_kph']}km/h</b></label>
                 <label>Humidade <b>{cityInformation['current']['humidity']}%</b></label>
