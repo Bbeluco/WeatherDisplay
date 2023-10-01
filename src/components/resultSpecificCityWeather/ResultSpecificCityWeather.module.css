@@ -6,6 +6,16 @@
     padding: 30px;
 }
 
+@media screen and (max-width: 600px) {
+    .divSpecificCityWeather {
+        background-color: white;
+        width: 100%;
+        margin: auto;
+        text-align: left;
+        padding: 30px;
+    }
+}
+
 .cityRegion {
     font-size: 10px;
     font-weight: bold;

@@ -18,6 +18,17 @@
     float: left;
 }
 
+@media screen and (max-width: 600px){
+    .inputField {
+        border: 1px solid grey;
+        border-right: 0px;
+        outline: none;
+        width: 100vw;
+        height: 25px;
+        float: left;
+    }
+}
+
 .form, .button {
     float: left;
     border-left: none;
