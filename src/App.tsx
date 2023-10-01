@@ -10,8 +10,8 @@ function App() {
     <div className={style.app}>
       <Header />
       <SeachSpecificWeatherInCity />
-      <hr />
-      <CityList />
+      {/* <hr />
+      <CityList /> */}
     </div>
   );
 }

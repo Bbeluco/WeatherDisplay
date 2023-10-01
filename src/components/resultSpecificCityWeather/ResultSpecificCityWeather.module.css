@@ -1,0 +1,26 @@
+.divSpecificCityWeather {
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    text-align: left;
+    padding: 30px;
+}
+
+.cityRegion {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.divGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.dayForecast {
+    
+    text-align: center;
+}
+
+.futureDaysForecast {
+    display: inline-block;
+}

@@ -1,0 +1,9 @@
+.dayForecast {
+    display: inline-block;
+    width: 20%;
+}
+
+.futureForecastDays {
+    width: 100%;
+    text-align: center;
+}
