@@ -16,11 +16,6 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.dayForecast {
-    
-    text-align: center;
-}
-
-.futureDaysForecast {
-    display: inline-block;
+.hrSpecificCity {
+    margin: 10px;
 }

@@ -7,8 +7,8 @@ function FutureForecastDays({ futureDays }: any): React.JSX.Element {
             {futureDays.map((day: any, index: number) => {
                     return (
                         <div className={style.dayForecast}>
-                            <label>{day['date'].split('-').slice(1).reverse().join('/')}</label><br/>
-                            <label>{Math.round(day['day']['mintemp_c'])}°</label>
+                            <label><b>{day['date'].split('-').slice(1).reverse().join('/')}</b></label><br/>
+                            <label>{Math.round(day['day']['mintemp_c'])}° </label>
                             <label>{Math.round(day['day']['maxtemp_c'])}°</label>
                         </div>
                     )

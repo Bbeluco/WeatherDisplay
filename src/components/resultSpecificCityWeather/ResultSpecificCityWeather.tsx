@@ -26,7 +26,7 @@ function ResultSpecificCityWeather({ cityInformation }: Props): React.JSX.Elemen
                 <label>Vento <b>{cityInformation['current']['wind_kph']}km/h</b></label>
                 <label>Humidade <b>{cityInformation['current']['humidity']}%</b></label>
             </div>
-            <hr/>
+            <hr className={style.hrSpecificCity}/>
             <FutureForecastDays futureDays={futureDays}/>
         </div>
     )
