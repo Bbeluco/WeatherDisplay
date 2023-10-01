@@ -7,6 +7,7 @@ function SeachSpecificWeatherInCity(): React.JSX.Element {
     const [nameCity, setNameCity] = useState('')
     const { requestApiToCheckWeather } = useAxiosRequests()
     const [cityInformation, setCityInformation] = useState<any>()
+    const [isAvailableToShow, setIsAvailableToShow] = useState(true)
     
     
     function onChangeInputField(event: any) {
@@ -16,11 +17,17 @@ function SeachSpecificWeatherInCity(): React.JSX.Element {
     async function loadInformationAboutCity() {
         const respose = await requestApiToCheckWeather(nameCity)
         setCityInformation(respose);
+        setIsAvailableToShow(true)
+    }
+
+    function closeSpecificWeather(): undefined {
+        setIsAvailableToShow(false)
+        return undefined
     }
 
     return (
         <div>
-            {<ResultSpecificCityWeather cityInformation={cityInformation} /> }
+            {isAvailableToShow && <ResultSpecificCityWeather cityInformation={cityInformation} closeSpecificWeather={closeSpecificWeather}/> }
             <br />
             <FormCityToCheckWeather 
                 onChangeInputField={onChangeInputField} 

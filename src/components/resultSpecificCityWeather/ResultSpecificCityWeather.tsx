@@ -3,10 +3,11 @@ import style from "./ResultSpecificCityWeather.module.css"
 import FutureForecastDays from "../futureForecastDays/FutureForecastDays";
 
 type Props = {
-    cityInformation: any
+    cityInformation: any,
+    closeSpecificWeather: () => undefined
 }
 
-function ResultSpecificCityWeather({ cityInformation }: Props): React.JSX.Element {
+function ResultSpecificCityWeather({ cityInformation, closeSpecificWeather }: Props): React.JSX.Element {
     
     if(!cityInformation) {
         return (<>
@@ -20,7 +21,7 @@ function ResultSpecificCityWeather({ cityInformation }: Props): React.JSX.Elemen
         <div className={style.divSpecificCityWeather}>
             <div className={style.headerSpecificCityWeather}>
                 <label className={style.cityRegion}>{cityInformation['location']['name']},{cityInformation['location']['region']} - {cityInformation['location']['country']}</label>
-                <button className={style.buttonCloseSpecificWeather}>X</button>
+                <button className={style.buttonCloseSpecificWeather} onClick={closeSpecificWeather}>X</button>
             </div>
             <h1>{cityInformation['current']['temp_c']}°C {cityInformation['current']['condition']['text']}</h1>
             <div className={style.divGrid}>
