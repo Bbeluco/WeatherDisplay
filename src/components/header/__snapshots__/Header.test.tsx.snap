@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< Header/> should test if render properly 1`] = `
+<h1
+  className="headerTitle"
+>
+  Previsao do tempo
+</h1>
+`;
