@@ -16,6 +16,3 @@ describe('< Header/>', () => {
         expect(component).toMatchSnapshot()
     })
 })
-
-
-export default {}
