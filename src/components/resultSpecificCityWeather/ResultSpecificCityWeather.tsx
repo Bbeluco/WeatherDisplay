@@ -11,7 +11,7 @@ function ResultSpecificCityWeather({ cityInformation, closeSpecificWeather }: Pr
     
     if(!cityInformation) {
         return (<>
-            <label></label>
+            <label>Carregando informacoes sobre a cidade</label>
         </>)
     }
 

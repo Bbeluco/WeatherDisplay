@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react"
+import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import SeachSpecificWeatherInCity from "./SeachSpecificWeatherInCity"
 import '@testing-library/jest-dom'
 import { act } from "react-dom/test-utils"
@@ -5945,15 +5945,16 @@ describe('<SeachSpecificWeatherInCity />', () => {
     })
 
     it('should render <ResultSpecificCityWeather /> and <FormCityToCheckWeather />', async () => {
-        const { rerender } = render(<SeachSpecificWeatherInCity />)
-        // eslint-disable-next-line testing-library/no-unnecessary-act
-        await act(() => {
-            const input = screen.getByPlaceholderText('Insira aqui o nome da cidade')
-            fireEvent.change(input, { target: { value: 'Diadema' } })
-            fireEvent.click(screen.getByRole('button'))
+        render(<SeachSpecificWeatherInCity />)
+
+        const input = screen.getByPlaceholderText('Insira aqui o nome da cidade')
+        fireEvent.change(input, { target: { value: 'Diadema' } })
+        fireEvent.click(screen.getByRole('button'))
+
+        await waitFor(() => {
+            expect(screen.queryByText("Carregando informacoes sobre a cidade")).not.toBeInTheDocument()
         })
 
-        rerender(<SeachSpecificWeatherInCity />)
         expect(screen.getByPlaceholderText('Insira aqui o nome da cidade')).toHaveValue('Diadema')
         expect(screen.getByTestId('specific_city_info')).toBeInTheDocument()
     })
