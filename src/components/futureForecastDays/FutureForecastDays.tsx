@@ -3,7 +3,7 @@ import style from "./FutureForecastDays.module.css"
 
 function FutureForecastDays({ futureDays }: any): React.JSX.Element {
     return(
-        <div className={style.futureForecastDays}>
+        <div key="FutureForecastDays" className={style.futureForecastDays}>
             {futureDays.map((day: any, index: number) => {
                     return (
                         <div className={style.dayForecast}>
