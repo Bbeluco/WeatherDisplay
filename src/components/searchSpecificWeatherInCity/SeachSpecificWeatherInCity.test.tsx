@@ -5952,4 +5952,19 @@ describe('<SearchSpecificWeatherInCity />', () => {
         expect(screen.getByTestId('specific_city_info')).toBeInTheDocument()
         expect(screen.getByTestId('forecast_future_days')).toBeInTheDocument()
     })
+
+    it('should be possible to close <ResultSpecificCityWeather /> clicking on X button', async () => {
+        render(<SearchSpecificWeatherInCity />)
+
+        const input = screen.getByPlaceholderText('Insira aqui o nome da cidade')
+        fireEvent.change(input, { target: { value: 'Diadema' } })
+        fireEvent.click(screen.getByRole('button'))
+
+        await waitFor(() => {
+            expect(screen.queryByText("Carregando informacoes sobre a cidade")).not.toBeInTheDocument()
+        })
+
+        fireEvent.click(screen.getByRole('button', {name: /X/}))
+        expect(screen.queryByTestId('specific_city_info')).not.toBeInTheDocument()
+    })
 })
