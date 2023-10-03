@@ -18,7 +18,7 @@ function ResultSpecificCityWeather({ cityInformation, closeSpecificWeather }: Pr
     const futureDays = cityInformation['forecast']['forecastday'].slice(1)
 
     return (
-        <div className={style.divSpecificCityWeather} data-testId="specific_city_info">
+        <div className={style.divSpecificCityWeather} data-testid="specific_city_info">
             <div className={style.headerSpecificCityWeather}>
                 <label className={style.cityRegion}>{cityInformation['location']['name']},{cityInformation['location']['region']} - {cityInformation['location']['country']}</label>
                 <button className={style.buttonCloseSpecificWeather} onClick={closeSpecificWeather}>X</button>
