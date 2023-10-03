@@ -3,7 +3,7 @@ import React from "react"
 
 function MobileTableCapitalsWeather(city: any): React.JSX.Element {
     return (
-        <table>
+        <table key={1 * Math.random()}>
                 <tr>
                     <th>Min</th>
                     <th>Máx</th>
@@ -15,13 +15,11 @@ function MobileTableCapitalsWeather(city: any): React.JSX.Element {
             let max_temp = Math.round(element['forecast']['forecastday'][0]['day']['maxtemp_c'])
             return (
                 <tbody key={(index + 1) * Math.random()}>
-
-                    <tr>
+                    <tr key={(index + 1) * Math.random()}>
                         <td>{min_temp}°</td>
                         <td>{max_temp}°</td>
                         <td>{element['location']['name']}</td>
                     </tr>
-
                 </tbody>
             )
             }

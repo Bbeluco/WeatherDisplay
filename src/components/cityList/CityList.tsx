@@ -26,7 +26,7 @@ function CityList(): React.JSX.Element {
     useGetCapitalsWeather()
 
     if(isLoading){
-        return <div>Carregando a lista de cidades...</div>;
+        return <div><label>Carregando a lista de cidades...</label></div>;
     }
 
     return (
