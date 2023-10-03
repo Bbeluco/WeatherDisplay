@@ -1,8 +1,6 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import SeachSpecificWeatherInCity from "./SeachSpecificWeatherInCity"
-import '@testing-library/jest-dom'
-import { act } from "react-dom/test-utils"
-import ReactDOM from 'react-dom/client';
+import '@testing-library/jest-dom';
 
 jest.mock("../../requests/axiosRequests", () => {
 
@@ -5930,11 +5928,6 @@ jest.mock("../../requests/axiosRequests", () => {
     return useAxiosRequests
 })
 
-let container: any;
-beforeEach(() => {
-    container = document.createElement('div');
-    document.body.appendChild(container);
-})
 
 describe('<SeachSpecificWeatherInCity />', () => {
     it('should render only <FormCityToCheckWeather /> component', () => {
