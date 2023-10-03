@@ -3,7 +3,7 @@ import FormCityToCheckWeather from "../formCityToCheckWeather/FormCityToCheckWea
 import ResultSpecificCityWeather from "../resultSpecificCityWeather/ResultSpecificCityWeather";
 import useAxiosRequests from "../../requests/axiosRequests";
 
-function SeachSpecificWeatherInCity(): React.JSX.Element {
+function SearchSpecificWeatherInCity(): React.JSX.Element {
     const [nameCity, setNameCity] = useState('')
     const { requestApiToCheckWeather } = useAxiosRequests()
     const [cityInformation, setCityInformation] = useState<any>()
@@ -37,4 +37,4 @@ function SeachSpecificWeatherInCity(): React.JSX.Element {
     )
 }
 
-export default SeachSpecificWeatherInCity
+export default SearchSpecificWeatherInCity

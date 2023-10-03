@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react"
-import SeachSpecificWeatherInCity from "./SeachSpecificWeatherInCity"
+import SearchSpecificWeatherInCity from "./SearchSpecificWeatherInCity"
 import '@testing-library/jest-dom';
 
 jest.mock("../../requests/axiosRequests", () => {
@@ -5929,16 +5929,16 @@ jest.mock("../../requests/axiosRequests", () => {
 })
 
 
-describe('<SeachSpecificWeatherInCity />', () => {
+describe('<SearchSpecificWeatherInCity />', () => {
     it('should render only <FormCityToCheckWeather /> component', () => {
-        render(<SeachSpecificWeatherInCity />)
+        render(<SearchSpecificWeatherInCity />)
         expect(screen.getByPlaceholderText('Insira aqui o nome da cidade')).toBeInTheDocument()
         expect(screen.getByRole('button')).toBeInTheDocument()
         expect(screen.queryByTestId('specific_city_info')).not.toBeInTheDocument()
     })
 
     it('should render <ResultSpecificCityWeather /> and <FormCityToCheckWeather />', async () => {
-        render(<SeachSpecificWeatherInCity />)
+        render(<SearchSpecificWeatherInCity />)
 
         const input = screen.getByPlaceholderText('Insira aqui o nome da cidade')
         fireEvent.change(input, { target: { value: 'Diadema' } })
