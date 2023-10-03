@@ -5950,5 +5950,6 @@ describe('<SeachSpecificWeatherInCity />', () => {
 
         expect(screen.getByPlaceholderText('Insira aqui o nome da cidade')).toHaveValue('Diadema')
         expect(screen.getByTestId('specific_city_info')).toBeInTheDocument()
+        expect(screen.getByTestId('forecast_future_days')).toBeInTheDocument()
     })
 })
