@@ -5932,14 +5932,39 @@ jest.mock("../../requests/axiosRequests", () => {
 })
 
 describe('<CityList />', () => {
-    // it('should render loading screen', () => {
-    //     render(<CityList />)
-    //     expect(screen.getByText('Carregando a lista de cidades...')).toBeInTheDocument()
+    // describe('Loading page', () => {
+    //     jest.clearAllMocks()
+
+    //     it('should render loading screen', () => {
+    //         render(<CityList />)
+    //         expect(screen.getByText('Carregando a lista de cidades...')).toBeInTheDocument()
+    //     })
     // })
 
-    it('should render capitals with current weather', () => {
-        render(<CityList />)
-        expect(screen.getByText('Capitais')).toBeInTheDocument()
-        expect(screen.getAllByRole('table').length > 1).toBeTruthy()
+
+    describe('Capitals with content', () => {
+
+        it('should render capitals with current weather on desktop view', () => {
+            render(<CityList />)
+            expect(screen.getByText('Capitais')).toBeInTheDocument()
+            expect(screen.getAllByRole('table').length >= 2).toBeTruthy()
+        })
+    
+        it('should render capitals with current weather on mobile view', async () => {
+            
+            const resizeWindow = (x: number, y: number) => {
+                window.innerWidth = x;
+                window.innerHeight = y;
+                window.dispatchEvent(new Event('resize'));
+            }
+            
+            resizeWindow(600, 720)
+
+            render(<CityList />)
+
+            expect(screen.getByRole('table')).toBeInTheDocument()
+            expect(screen.queryAllByRole('table').length >= 2).toBeFalsy()
+        })
     })
+
 })

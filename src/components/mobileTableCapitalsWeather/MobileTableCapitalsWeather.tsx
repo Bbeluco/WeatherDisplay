@@ -4,10 +4,12 @@ import React from "react"
 function MobileTableCapitalsWeather(city: any): React.JSX.Element {
     return (
         <table key={1 * Math.random()}>
+            <tbody>
                 <tr>
                     <th>Min</th>
                     <th>Máx</th>
                 </tr>
+            </tbody>
         {
 
         city.map((element: any, index: number) => {
