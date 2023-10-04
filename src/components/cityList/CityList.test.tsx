@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import CityList from "./CityList"
 import '@testing-library/jest-dom';
-import useAxiosRequests from "../../requests/axiosRequests";
+import { useStateHooks } from "../../requests/hooks/stateHooks";
 
 const cityInfoMock = {
     "location": {
@@ -5917,35 +5917,22 @@ const cityInfoMock = {
     }
 }
 
-jest.mock("../../requests/axiosRequests", () => {
-
-    function useAxiosRequests() {
-        const useGetCapitalsWeather = jest.fn()
-        const isLoading = false
-
-        let city = [];
-        for (let index = 0; index < 10; index++) {
-            city.push(cityInfoMock)
-        }
-
-        return { useGetCapitalsWeather, isLoading, city }
-    }
-
-    return useAxiosRequests
+afterEach(() => {
+    jest.restoreAllMocks()
 })
-
 
 describe('<CityList />', () => {
     describe('Loading page', () => {
         it('should render loading screen', () => {
+            jest.spyOn(useStateHooks, 'useHooks').mockReturnValue({ city: [{}], isLoading: true, useGetCapitalsWeather: jest.fn()})
             render(<CityList />)
             expect(screen.getByText('Carregando a lista de cidades...')).toBeInTheDocument()
         })
     })
 
     describe('Capitals with content', () => {
-
         it('should render capitals with current weather on desktop view', () => {           
+            jest.spyOn(useStateHooks, 'useHooks').mockReturnValue({ city: [cityInfoMock], isLoading: false, useGetCapitalsWeather: jest.fn()})
             render(<CityList />)
             expect(screen.getByText('Capitais')).toBeInTheDocument()
             expect(screen.getAllByRole('table').length >= 2).toBeTruthy()
@@ -5959,6 +5946,8 @@ describe('<CityList />', () => {
             }
             
             resizeWindow(600, 720)
+
+            jest.spyOn(useStateHooks, 'useHooks').mockReturnValue({ city: [cityInfoMock], isLoading: false, useGetCapitalsWeather: jest.fn()})
 
             render(<CityList />)
 

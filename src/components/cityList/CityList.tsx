@@ -5,7 +5,7 @@ import MobileTableCapitalsWeather from "../mobileTableCapitalsWeather/MobileTabl
 import DesktopTableCapitalsWeather from "../desktopTableCapitalsWeather/DesktopTableCapitalsWeather"
 
 function CityList(): React.JSX.Element {
-    const { city, useGetCapitalsWeather, isLoading } = useAxiosRequests()
+    const { city, isLoading, useGetCapitalsWeather } = useAxiosRequests()
     const [windowSize, setWindowSize] = useState([
         window.innerWidth,
         window.innerHeight
