@@ -5945,7 +5945,7 @@ describe('<SearchSpecificWeatherInCity />', () => {
         fireEvent.click(screen.getByRole('button'))
 
         await waitFor(() => {
-            expect(screen.queryByText("Carregando informacoes sobre a cidade")).not.toBeInTheDocument()
+            expect(screen.queryByTestId("not_show_specific_city_info")).not.toBeInTheDocument()
         })
 
         expect(screen.getByPlaceholderText('Insira aqui o nome da cidade')).toHaveValue('Diadema')
@@ -5961,7 +5961,7 @@ describe('<SearchSpecificWeatherInCity />', () => {
         fireEvent.click(screen.getByRole('button'))
 
         await waitFor(() => {
-            expect(screen.queryByText("Carregando informacoes sobre a cidade")).not.toBeInTheDocument()
+            expect(screen.queryByTestId("not_show_specific_city_info")).not.toBeInTheDocument()
         })
 
         fireEvent.click(screen.getByRole('button', {name: /X/}))

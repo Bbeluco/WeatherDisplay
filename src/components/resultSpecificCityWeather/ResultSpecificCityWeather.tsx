@@ -10,9 +10,8 @@ type Props = {
 function ResultSpecificCityWeather({ cityInformation, closeSpecificWeather }: Props): React.JSX.Element {
     
     if(!cityInformation) {
-        return (<>
-            <label>Carregando informacoes sobre a cidade</label>
-        </>)
+        return (<div data-testid="not_show_specific_city_info">
+        </div>)
     }
 
     const futureDays = cityInformation['forecast']['forecastday'].slice(1)
