@@ -12,11 +12,13 @@ function DesktopTableCapitalsWeather(city: any): React.JSX.Element {
             {
                 tablesToConstruct.map(table => {
                     return (
-                        <table className={style.tableCapitals}>
-                            <tr>
-                                <th>Min</th>
-                                <th>Máx</th>
-                            </tr>
+                        <table className={style.tableCapitals} key={1 * Math.random()}>
+                            <tbody>
+                                <tr>
+                                    <th>Min</th>
+                                    <th>Máx</th>
+                                </tr>
+                            </tbody>
                             {
                                 table.map((element: any, index: number) => {
                                     let min_temp = Math.round(element['forecast']['forecastday'][0]['day']['mintemp_c'])

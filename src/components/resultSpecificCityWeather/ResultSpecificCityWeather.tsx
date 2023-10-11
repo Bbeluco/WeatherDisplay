@@ -10,18 +10,17 @@ type Props = {
 function ResultSpecificCityWeather({ cityInformation, closeSpecificWeather }: Props): React.JSX.Element {
     
     if(!cityInformation) {
-        return (<>
-            <label></label>
-        </>)
+        return (<div data-testid="not_show_specific_city_info">
+        </div>)
     }
 
     const futureDays = cityInformation['forecast']['forecastday'].slice(1)
 
     return (
-        <div className={style.divSpecificCityWeather}>
+        <div className={style.divSpecificCityWeather} data-testid="specific_city_info">
             <div className={style.headerSpecificCityWeather}>
                 <label className={style.cityRegion}>{cityInformation['location']['name']},{cityInformation['location']['region']} - {cityInformation['location']['country']}</label>
-                <button className={style.buttonCloseSpecificWeather} onClick={closeSpecificWeather}>X</button>
+                <button className={style.buttonCloseSpecificWeather} onClick={closeSpecificWeather} name="close_ResultSpecificCityWeather_div">X</button>
             </div>
             <h1>{cityInformation['current']['temp_c']}°C {cityInformation['current']['condition']['text']}</h1>
             <div className={style.divGrid}>
